@@ -1,0 +1,29 @@
+
+schemes:
+  tokyo-night: &tokyo-night
+    primary:
+      background: '#24283b'
+      foreground: '#c0caf5'
+      # Normal colors
+      normal:
+      black:   '#24283b'
+      red:     '#f7768e'
+      green:   '#9ece6a'
+      yellow:  '#e0af68'
+      blue:    '#2ac3de'
+      magenta: '#bb9af7'
+      cyan:    '#7dcfff'
+      white:   '#c0caf5'
+
+    # Bright colors
+    bright:
+      black:   '#414868'
+      red:     '#db4b4b'
+      green:   '#73daca'
+      yellow:  '#ff9e64'
+      blue:    '#0db9d7'
+      magenta: '#ff007c'
+      cyan:    '#89ddff'
+      white:   '#c8d3f5'
+
+colors: *tokyo-night
