@@ -15,9 +15,6 @@ set $mod Mod1
 # is used in the bar {} block below.
 font pango:monospace 8
 
-# TODO(sss): This is temporary, used for VMs, move it to a xinitrc ?
-exec xrandr --output Virtual1 --mode 1920x1080
-
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -54,7 +51,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show run -config "~/.config/rofi/config"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -113,16 +110,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1: WWW"
+set $ws2 "2: DEV"
+set $ws3 "3: CHA"
+set $ws4 "4: MUS"
+set $ws5 "5: DOC"
+set $ws6 "6: CHA"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -182,26 +175,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	position top
-        status_command i3status
-
-	colors {
-		background 		#e1e2e7
-		statusline 		#3760bf
-		separator  		#9854f1
-		
-		#			<border>	<background>	<foreground>
-		focused_workspace 	#984d71 	#984d71 	#e1e2e7
-		active_workspace 	#e1e2e7 	#e1e2e7 	#3760bf
-		inactive_workspace 	#e1e2e7 	#e1e2e7 	#3760bf
-		urgent_workspace	#f7768e 	#f7768e 	#e1e2e7
-	}
-}
-
 # NOTE(sss): Start of config here
 for_window [class="^,*"] border pixel 0
 # Wallpapper
 exec --no-startup-id nitrogen --restore
+# Bar
+exec_always --no-startup-id ~/.config/polybar/launch.sh

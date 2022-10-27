@@ -1,1 +1,1 @@
-colorscheme tokyonight
+colorscheme tokyonight-day
